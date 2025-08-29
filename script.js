@@ -5,15 +5,37 @@ var KeyNum = 0;
 var Score = 0;
 var Highscore = 0;
 var CanClick = false;
+var hard = false
+var ALERT = true
 
 for (let i = 1; i <= 9; i += 1) {
   document.getElementById(String(i)).addEventListener('click', () => {
     CHECK(i);
   });
 }
+document.getElementById("HardBttn").addEventListener('click', () => {
+  hard == false ? hard = true:hard = false
+  if(ALERT == true){
+    alert("You have just enabled hard mode, the pattern now does not repeat, and only shows you the additional square. Feel free to toggle hard mode in between games.")
+    hard = true
+    ALERT = false
+  }
+  HardTggl()
+})
+
 function CHECK(P) {
   if (CanClick == false) return;
   click(P);
+}
+
+function HardTggl(){
+if(hard == false){
+  console.log("Not hard")
+  LightUp('HardBttn', 'BttnGray')
+}else{
+  console.log("Hard mode")
+  LightUp('HardBttn', 'BttnRed')
+}
 }
 
 function click(ID) {
@@ -61,6 +83,12 @@ function LightUp(ID, color) {
     document.getElementById(ID).className = 'boxRed';
   } else if (color == 'green') {
     document.getElementById(ID).className = 'boxGreen';
+  }else if (color == 'BttnRed') {
+    document.getElementById(ID).style.color = "white"
+    document.getElementById(ID).style.backgroundColor = "red"
+  }else if (color == 'BttnGray'){
+    document.getElementById(ID).style.color = "black"
+    document.getElementById(ID).style.backgroundColor = ""
   }
 }
 
@@ -70,18 +98,28 @@ function play() {
   CanClick = false;
   Boxes.push(chose());
   if (Boxes.length > 0) {
+  if(hard == true){
+    CanClick = false
+    LightUp(Boxes[(Boxes.length) - 1], "blue")
+    setTimeout(() => {LightUp(Boxes[(Boxes.length) - 1], "gray")
+      CanClick = true
+    }, 250)
+  }else{
     for (let i = 0; i < Boxes.length; i++) {
-      setTimeout(() => {
-        LightUp(Boxes[i], 'blue');
-      }, (i + 0.5) * 500);
-      setTimeout(() => {
-        LightUp(Boxes[i], 'gray');
-      }, (i + 0.5) * 500 + 250);
-      W = (i + 0.5) * 500 + 250;
+    setTimeout(() => {
+      LightUp(Boxes[i], 'blue');
+    }, (i + 0.5) * 500);
+
+    setTimeout(() => {
+      LightUp(Boxes[i], 'gray');
+    }, (i + 0.5) * 500 + 250);
+
+    W = (i + 0.5) * 500 + 250;
     }
     setTimeout(() => {
       CanClick = true;
     }, W);
+  }
   }
 }
 
