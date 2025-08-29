@@ -94,6 +94,7 @@ function LightUp(ID, color) {
 
 function play() {
   document.getElementById('start').style.visibility = 'hidden';
+  document.getElementById('HardBttn').style.visibility = 'hidden';
   var W = undefined;
   CanClick = false;
   Boxes.push(chose());
@@ -142,6 +143,7 @@ function RESET() {
   }
   setTimeout(() => {
     document.getElementById('start').style.visibility = 'visible';
+    document.getElementById('HardBttn').style.visibility = 'visible';
   }, 601);
 }
 
