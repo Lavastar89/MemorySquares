@@ -1,72 +1,52 @@
-.parent{
-    position: absolute;
-    left: 500px;
+.parent {
+  position: absolute;
+  left: 500px;
 }
-.box{
-    width: 150px;
-    height: 150px;
-    background-color: gray;
-    margin-left:  7px;
-    margin-bottom: 7px;
-    display: inline-block;
-    border-radius: 10px;
+.box {
+  width: 150px;
+  height: 150px;
+  background-color: gray;
+  margin-left: 7px;
+  display: inline-block;
+  border-radius: 10px;
 }
-.box:hover{
-    cursor: pointer;
-    background-color: darkcyan;
-}
-
-.boxBlue{
-    width: 150px;
-    height: 150px;
-    background-color: blue;
-    margin-left:  7px;
-    margin-bottom: 7px;
-    display: inline-block;
-    border-radius: 10px;
+.box:hover {
+  cursor: pointer;
+  background-color: darkcyan;
 }
 
-.boxRed{
-    width: 150px;
-    height: 150px;
-    background-color: red;
-    margin-left:  7px;
-    margin-bottom: 7px;
-    display: inline-block;
-    border-radius: 10px;
+.box4 {
+  height: 112.5px !important;
+  width: 112.5px !important;
+}
+.box5 {
+  height: 90px !important;
+  width: 90px !important;
 }
 
-.boxGreen{
-    width: 150px;
-    height: 150px;
-    background-color: goldenrod;
-    margin-left:  7px;
-    margin-bottom: 7px;
-    display: inline-block;
-    border-radius: 10px;
-}
-
-.buttonnn{
-    width: 120px;
-    height: 35px;
-    font-size: medium;
-    font-weight: bold;
+.buttonnn {
+  width: 120px;
+  height: 35px;
+  font-size: medium;
+  font-weight: bold;
 }
 
 .rules {
-  margin-top: 380px;
+  margin-top: 390px;
   margin-left: 465px;
 }
 
-.HardBttn{
-    width: 140px;
-    height: 55px;
-    font-size: medium;
-    font-weight: bold;
+.HardBttn {
+  width: 140px;
+  height: 55px;
+  font-size: medium;
+  font-weight: bold;
+  position: absolute;
+  bottom: 430px;
+}
+
+.selector{
     position: absolute;
-    bottom: 430px;
-}
-.rules {
-  margin-top: 380px;
-  margin-left: 465px;
-}
+    bottom: 190px;
+    left: 505px;
+
