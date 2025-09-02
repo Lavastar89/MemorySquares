@@ -94,7 +94,7 @@ function click(ID) {
           LightUp(i, 'gray');
         }, 300);
       }
-      setTimeout(play, 810);
+      setTimeout(play, 590);
     } else
       setTimeout(() => {
         LightUp(ID, 'gray');
@@ -140,21 +140,21 @@ function play(update) {
   if (Boxes.length > 0) {
   if(hard == true){
     CanClick = false
-    LightUp(Boxes[(Boxes.length) - 1], "blue")
+    setTimeout(() => {LightUp(Boxes[(Boxes.length) - 1], "blue")}, 250)
     setTimeout(() => {LightUp(Boxes[(Boxes.length) - 1], "gray")
       CanClick = true
-    }, 250)
+    }, 500)
   }else{
     for (let i = 0; i < Boxes.length; i++) {
     setTimeout(() => {
       LightUp(Boxes[i], 'blue');
-    }, (i + 0.5) * 500);
+    }, (i + 0.4) * 500);
 
     setTimeout(() => {
       LightUp(Boxes[i], 'gray');
-    }, (i + 0.5) * 500 + 250);
+    }, (i + 0.4) * 500 + 250);
 
-    W = (i + 0.5) * 500 + 250;
+    W = (i + 0.4) * 500 + 251;
     }
     setTimeout(() => {
       CanClick = true;
