@@ -4,6 +4,7 @@ var ClickedBoxes = [];
 var KeyNum = 0;
 var Score = 0;
 var Highscore = 0;
+var HardHighscore = 0;
 var CanClick = false;
 var hard = false
 var ALERT = true
@@ -169,7 +170,9 @@ function RESET() {
   ClickedBoxes = [];
   KeyNum = 0;
   CanClick = false;
-  if (Score > Highscore) {
+  if(hard == true && Score > HardHighscore){
+    ScoreKeeping(2);
+  }else if (Score > Highscore) {
     ScoreKeeping(2);
   }
   Score = 0;
@@ -190,7 +193,12 @@ function ScoreKeeping(action) {
   if (action == 1) {
     document.getElementById('SCORE').innerHTML = 'Score: ' + Score;
   } else if (action == 2) {
-    Highscore = Score;
-    document.getElementById('HIGHSCORE').innerHTML = 'Highscore: ' + Highscore;
+    if(hard == true){
+      Highscore = Score;
+      document.getElementById('HARDHIGHSCORE').innerHTML = 'Highscore(hard mode): ' + Highscore;
+    }else{
+      Highscore = Score;
+      document.getElementById('HIGHSCORE').innerHTML = 'Highscore: ' + Highscore;
+    }
   }
 }
