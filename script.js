@@ -15,6 +15,16 @@ for(let i = 1; i <= 3; i ++){
 document.getElementById("Bttn" + i).addEventListener("click", () => {selector("Bttn" + i, i)})
 }
 
+document.getElementById("HardBttn").addEventListener('click', () => {
+  hard == false ? hard = true:hard = false
+  if(ALERT == true){
+    alert("You have just enabled hard mode, the pattern now does not repeat, and only shows you the additional square. Feel free to toggle hard mode in between games.")
+    hard = true
+    ALERT = false
+  }
+  HardTggl()
+})
+
 function selector(id, num){
     if(CanClick == true) return
     GridSize = num
@@ -50,16 +60,6 @@ function generate(preset) {
   }
 }
 
-document.getElementById("HardBttn").addEventListener('click', () => {
-  hard == false ? hard = true:hard = false
-  if(ALERT == true){
-    alert("You have just enabled hard mode, the pattern now does not repeat, and only shows you the additional square. Feel free to toggle hard mode in between games.")
-    hard = true
-    ALERT = false
-  }
-  HardTggl()
-})
-
 function CHECK(P) {
   if (CanClick == false) return;
   click(P);
@@ -94,9 +94,6 @@ function click(ID) {
           LightUp(i, 'gray');
         }, 300);
       }
-      setTimeout(() => {
-        CanClick = true;
-      }, 301);
       setTimeout(play, 810);
     } else
       setTimeout(() => {
@@ -187,15 +184,6 @@ function RESET() {
     document.getElementById('start').style.visibility = 'visible';
     document.getElementById('HardBttn').style.visibility = 'visible';
   }, 601);
-}
-
-function ScoreKeeping(action) {
-  if (action == 1) {
-    document.getElementById('SCORE').innerHTML = 'Score: ' + Score;
-  } else if (action == 2) {
-    Highscore = Score;
-    document.getElementById('HIGHSCORE').innerHTML = 'Highscore: ' + Highscore;
-  }
 }
 
 function ScoreKeeping(action) {
